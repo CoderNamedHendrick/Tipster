@@ -1,18 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_width="match_parent"
+    android:stretchColumns="1">
+    <!-- Row 1: Text label placed in column zero,
+        text field placed in column two and allowed to
+        span two columns. So a total of 4 columns in this row-->
+    <TableRow>
+        <TextView
+            android:id="@+id/txtLb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/textLbl1"/>
+        <EditText
+            android:id="@+id/txtAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:layout_column="2"
+            android:layout_span="2"/>
+    </TableRow>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Row 2: Text label placed in column zero,
+        text field placed in column two and allowed to span
+        two columns. So a total of 4 columns in this row-->
+    <TableRow>
+        <TextView
+            android:id="@+id/txtLbl2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/textLb2"/>
+        <EditText
+            android:id="@+id/txtPeople"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_column="2"
+            android:layout_span="2"/>
+    </TableRow>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Row 3: This has just one text label placed in column zero -->
+    <TableRow>
+        <TextView
+            android:id="@+id/txtLbl3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textLb3"/>
+    </TableRow>
+
+    <!-- Row 4: RadioGroup for RadioButtons placed at
+    column zero with column span of three, thus creating
+    one radio button per cell of the table row. Last cell
+    number 4 has the textfield to enter a custom tip percentage -->
+    <TableRow>
+        <RadioGroup
+            android:id="@+id/RadioGroupTips"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_span="3"
+            android:checkedButton="@+id/radioFifteen">
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radioFifteen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rdoTxt15"
+                android:textSize="15sp"/>
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioTwenty"
+                android:text="@string/rdoTxt20"
+                android:textSize="15sp"/>
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioOther"
+                android:text="@string/rdoTxtOther"
+                android:textSize="15sp"/>
+        </RadioGroup>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtTipOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </TableRow>
+
+    <!-- Row for the Calculate and Reset buttons. The Calculate button
+    is placed at column two, and Reset at column three -->
+    <TableRow>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:text="@string/btnReset"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCalculate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:text="@string/btnCalculate"/>
+    </TableRow>
+
+    <!-- TableLayout allows any other views to be inserted between
+    the TableRow elements. So insert a blank view to create a
+    line separator. This separator view is used to separate
+    the area below the buttons which will display the
+    calculation results-->
+    <View
+        android:layout_height="2px"
+        android:background="#DDFFDD"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <!-- Again TableRow is used to place the result textviews
+    at column zero and the result in textviews at column two -->
+    <TableRow android:paddingBottom="10dp"  android:paddingTop="5dp">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLbl4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/textLbl4"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtTipAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_span="2"/>
+    </TableRow>
+    <TableRow
+        android:paddingBottom="10dp"
+        android:paddingTop="5dp">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLbl5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/textLbl5"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtTotalToPay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_span="2"/>
+    </TableRow>
+
+    <TableRow
+        android:paddingBottom="10dp"
+        android:paddingTop="5dp">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLbl6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="@string/textLbl6"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtTipPerPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_span="2"/>
+    </TableRow>
+    <!-- End of all rows and widgets -->
+</TableLayout>

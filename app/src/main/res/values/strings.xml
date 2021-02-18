@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Tipster</string>
+    <string name="textLbl1" />
+    <string name="textLb2" />
+    <string name="textLb3" />
+    <string name="rdoTxt15" />
+    <string name="rdoTxt20" />
+    <string name="rdoTxtOther" />
+    <string name="btnReset">Reset</string>
+    <string name="btnCalculate">Calculate</string>
+    <string name="textLbl4" />
+    <string name="textLbl5" />
+    <string name="textLbl6" />
 </resources>
