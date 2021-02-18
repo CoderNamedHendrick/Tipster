@@ -31,6 +31,37 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initialiseDisplayContent();
+        rdoGroupTips.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // Enable/disable Other Tip Percentage field
+                if (checkedId == R.id.radioFifteen || checkedId == R.id.radioTwenty){
+                    txtTipOther.setEnabled(false);
+                    /**
+                     * Enable the Calculate button if total Amount and NO. of
+                     * People fields have valid values.
+                     */
+                    btnCalculate.setEnabled(txtAmount.getText().length()>0
+                    & txtPeople.getText().length()>0);
+                }else if (checkedId == R.id.radioOther){
+                    // Enable the Other Tip Percentage field
+                    txtTipOther.setEnabled(true);
+                    // Set the focus to this field
+                    txtTipOther.requestFocus();
+                    /*
+                    * Here we enable the calculate button if the Total Amount and No.
+                    * of People fields have valid values. Also ensure that user
+                    * has entered an Other Tip Percentage value before enabling
+                    * the Calculate button.
+                    */
+                    btnCalculate.setEnabled(txtAmount.getText().length()>0
+                    && txtPeople.getText().length()>0
+                    && txtTipOther.getText().length()>0);
+                }
+                // To determine the tip percentage choice made by user
+                radioCheckedId = checkedId;
+            }
+        });
     }
 
     private void initialiseDisplayContent() {
