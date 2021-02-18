@@ -3,6 +3,8 @@ package com.example.tipster;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -24,6 +26,24 @@ public class MainActivity extends AppCompatActivity {
     // For the ID of the radio button selected
     private int radioCheckedId = -1;
 
+    private View.OnKeyListener mKeyListener = new View.OnKeyListener() {
+        @Override
+        public boolean onKey(View v, int keyCode, KeyEvent event) {
+            switch (v.getId()){
+                case R.id.txtAmount:
+                    ;
+                case R.id.txtPeople:
+                    btnCalculate.setEnabled(txtAmount.getText().length()>0
+                    && txtPeople.getText().length()>0);
+                case R.id.txtTipOther:
+                    btnCalculate.setEnabled(txtAmount.getText().length()>0
+                    && txtPeople.getText().length()>0
+                    && txtTipOther.getText().length()>0);
+                    break;
+            }
+            return false;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +82,13 @@ public class MainActivity extends AppCompatActivity {
                 radioCheckedId = checkedId;
             }
         });
+
+        txtAmount.setOnKeyListener(mKeyListener);
+        txtPeople.setOnKeyListener(mKeyListener);
+        txtTipOther.setOnKeyListener(mKeyListener);
+
     }
+
 
     private void initialiseDisplayContent() {
         txtAmount = findViewById(R.id.txtAmount);
