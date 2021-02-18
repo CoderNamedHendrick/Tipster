@@ -7,13 +7,13 @@
         text field placed in column two and allowed to
         span two columns. So a total of 4 columns in this row-->
     <TableRow>
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtLb1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:text="@string/textLbl1"/>
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,13 +26,13 @@
         text field placed in column two and allowed to span
         two columns. So a total of 4 columns in this row-->
     <TableRow>
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtLbl2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:text="@string/textLb2"/>
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtPeople"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
 
     <!-- Row 3: This has just one text label placed in column zero -->
     <TableRow>
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtLbl3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,6 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="2"
+            android:layout_marginRight="4dp"
             android:text="@string/btnReset"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCalculate"
